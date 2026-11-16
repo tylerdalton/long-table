@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --bg: #f8f1e5;
+  --paper: #fffdf8;
+  --ink: #3a2a1e;
+  --ink-soft: #7a6553;
+  --line: #eadcc6;
+  --berry: #b5414e;
+  --berry-deep: #8f2b37;
+  --butter: #f6e8cf;
+  --pumpkin: #d0702f;
+  --pumpkin-soft: #fbe3cf;
+  --sage: #6f8a5e;
+  --sage-soft: #e5ecdc;
+  --gold: #b88d2f;
+  --wood: #8a5a36;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-berry: var(--berry);
+  --color-berry-deep: var(--berry-deep);
+  --color-butter: var(--butter);
+  --color-pumpkin: var(--pumpkin);
+  --color-pumpkin-soft: var(--pumpkin-soft);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-gold: var(--gold);
+  --color-wood: var(--wood);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background:
+    radial-gradient(1100px 480px at 10% -10%, #f7dcc4 0%, transparent 60%),
+    radial-gradient(900px 420px at 100% 0%, #ece9d4 0%, transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-variation-settings: "SOFT" 60, "WONK" 1;
+}
+
+@layer components {
+  .card {
+    @apply rounded-3xl border border-line bg-paper shadow-[0_1px_0_#eadcc6,0_12px_30px_-18px_rgba(110,60,30,.35)];
+  }
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-[15px] font-bold transition active:scale-[.97] disabled:opacity-50 disabled:active:scale-100;
+  }
+  .btn-primary {
+    @apply bg-berry-deep text-white shadow-[0_8px_20px_-10px_#8f2b37] hover:bg-[#7c2430];
+  }
+  .btn-soft {
+    @apply bg-pumpkin-soft text-[#9a4a17] hover:bg-[#f8d6bb];
+  }
+  .btn-ghost {
+    @apply border border-line bg-paper text-ink hover:bg-[#fcf7ee];
+  }
+  .btn-sm {
+    @apply min-h-9 px-3.5 text-sm;
+  }
+  .chip {
+    @apply inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full border border-line bg-paper px-3.5 text-sm font-semibold text-ink transition active:scale-95;
+  }
+  .chip[aria-pressed="true"] {
+    @apply border-berry-deep bg-berry-deep text-white;
+  }
+  .field {
+    @apply w-full rounded-2xl border border-line bg-paper px-4 py-3 text-base text-ink outline-none placeholder:text-[#b9a690] focus:border-pumpkin focus:ring-4 focus:ring-pumpkin-soft;
+  }
+  .label {
+    @apply mb-2 block text-[13px] font-extrabold tracking-wide text-ink-soft uppercase;
+  }
+  .section-title {
+    @apply font-display text-2xl text-ink sm:text-[28px];
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+
+/* Wood grain for the long table illustration */
+.tabletop {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 38px),
+    linear-gradient(180deg, #a26a3f, #84532f);
+}
+
+@keyframes leaf-fall {
+  0% { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translate3d(60px, 110vh, 0) rotate(380deg); opacity: 0; }
+}
+.leaf {
+  position: absolute;
+  top: 0;
+  animation: leaf-fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes pop-in {
+  0% { transform: translateY(12px) scale(.96); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+.pop-in { animation: pop-in .28s cubic-bezier(.2,.9,.3,1.3) both; }
+
+@keyframes seat-in {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+.seat { animation: seat-in .35s cubic-bezier(.2,.9,.3,1.4) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .leaf, .pop-in, .seat { animation: none; }
+  .leaf { display: none; }
+}
+
+@keyframes confetti-fly {
+  0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--r)); opacity: 0; }
+}
+.confetti-bit {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  animation: confetti-fly 1.1s cubic-bezier(.15,.7,.35,1) forwards;
+}
+
+/* Printing a recipe: just the recipe, on white paper. */
+@media print {
+  header.sticky,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+  .card {
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  main {
+    padding-top: 0 !important;
+  }
+}
