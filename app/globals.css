@@ -2,20 +2,29 @@
 
 :root {
   color-scheme: light;
-  --bg: #f8f1e5;
-  --paper: #fffdf8;
-  --ink: #3a2a1e;
-  --ink-soft: #7a6553;
-  --line: #eadcc6;
-  --berry: #b5414e;
-  --berry-deep: #8f2b37;
-  --butter: #f6e8cf;
-  --pumpkin: #d0702f;
-  --pumpkin-soft: #fbe3cf;
-  --sage: #6f8a5e;
-  --sage-soft: #e5ecdc;
-  --gold: #b88d2f;
-  --wood: #8a5a36;
+  /* Colors taken from Rope's pine-cone turkey. */
+  --bg: #f5eee2;
+  --paper: #fffcf6;
+  --ink: #2f2321; /* the dark gaps between pine-cone scales */
+  --ink-soft: #6d5d57;
+  --line: #e6dac8;
+  --plum: #6b2152; /* the crushed-petal neck */
+  --plum-deep: #521840;
+  --plum-soft: #f3e4ed;
+  --wattle: #c8192e; /* the red wattle */
+  --jay: #0a84c6; /* the painted blue head */
+  --jay-soft: #dcedf8;
+  --marigold: #d0841f; /* dried marigolds in the tail */
+  --marigold-soft: #fbebd0;
+  --marigold-ink: #8a520f;
+  --moss: #2f8a3c; /* the green painted board */
+  --moss-deep: #1d4d30;
+  --moss-soft: #e2efdc;
+  --moss-ink: #2c5e2f;
+  --pod: #efe5cf; /* the cream seed pods along the tail */
+  --pod-ink: #75603a;
+  --cone: #6e4b45; /* pine-cone scales */
+  --bark: #3d4046; /* the charred bark strips */
 }
 
 @theme inline {
@@ -24,15 +33,23 @@
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-line: var(--line);
-  --color-berry: var(--berry);
-  --color-berry-deep: var(--berry-deep);
-  --color-butter: var(--butter);
-  --color-pumpkin: var(--pumpkin);
-  --color-pumpkin-soft: var(--pumpkin-soft);
-  --color-sage: var(--sage);
-  --color-sage-soft: var(--sage-soft);
-  --color-gold: var(--gold);
-  --color-wood: var(--wood);
+  --color-plum: var(--plum);
+  --color-plum-deep: var(--plum-deep);
+  --color-plum-soft: var(--plum-soft);
+  --color-wattle: var(--wattle);
+  --color-jay: var(--jay);
+  --color-jay-soft: var(--jay-soft);
+  --color-marigold: var(--marigold);
+  --color-marigold-soft: var(--marigold-soft);
+  --color-marigold-ink: var(--marigold-ink);
+  --color-moss: var(--moss);
+  --color-moss-deep: var(--moss-deep);
+  --color-moss-soft: var(--moss-soft);
+  --color-moss-ink: var(--moss-ink);
+  --color-pod: var(--pod);
+  --color-pod-ink: var(--pod-ink);
+  --color-cone: var(--cone);
+  --color-bark: var(--bark);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
@@ -43,8 +60,8 @@ html {
 
 body {
   background:
-    radial-gradient(1100px 480px at 10% -10%, #f7dcc4 0%, transparent 60%),
-    radial-gradient(900px 420px at 100% 0%, #ece9d4 0%, transparent 55%),
+    radial-gradient(1100px 480px at 10% -10%, #f6dfc4 0%, transparent 60%),
+    radial-gradient(900px 420px at 100% 0%, #e6ecdc 0%, transparent 55%),
     var(--bg);
   background-attachment: fixed;
   color: var(--ink);
@@ -63,10 +80,10 @@ body {
     @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-[15px] font-bold transition active:scale-[.97] disabled:opacity-50 disabled:active:scale-100;
   }
   .btn-primary {
-    @apply bg-berry-deep text-white shadow-[0_8px_20px_-10px_#8f2b37] hover:bg-[#7c2430];
+    @apply bg-plum text-white shadow-[0_8px_20px_-10px_#6b2152] hover:bg-plum-deep;
   }
   .btn-soft {
-    @apply bg-pumpkin-soft text-[#9a4a17] hover:bg-[#f8d6bb];
+    @apply bg-marigold-soft text-marigold-ink hover:bg-[#f7dfb8];
   }
   .btn-ghost {
     @apply border border-line bg-paper text-ink hover:bg-[#fcf7ee];
@@ -78,10 +95,10 @@ body {
     @apply inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full border border-line bg-paper px-3.5 text-sm font-semibold text-ink transition active:scale-95;
   }
   .chip[aria-pressed="true"] {
-    @apply border-berry-deep bg-berry-deep text-white;
+    @apply border-plum bg-plum text-white;
   }
   .field {
-    @apply w-full rounded-2xl border border-line bg-paper px-4 py-3 text-base text-ink outline-none placeholder:text-[#b9a690] focus:border-pumpkin focus:ring-4 focus:ring-pumpkin-soft;
+    @apply w-full rounded-2xl border border-line bg-paper px-4 py-3 text-base text-ink outline-none placeholder:text-[#b3a394] focus:border-jay focus:ring-4 focus:ring-jay-soft;
   }
   .label {
     @apply mb-2 block text-[13px] font-extrabold tracking-wide text-ink-soft uppercase;
@@ -100,6 +117,17 @@ body {
 
 .pb-safe {
   padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+
+/* Rope's painted board: real green and brown brush strokes, mirrored so it tiles. */
+.painted-board {
+  background: #2b2c22 url("/rope/board.jpg") left center / auto 210px repeat-x; /* natural size, so thin strips show real strokes */
+}
+
+/* A row of the cream seed pods Rope lines the tail fan with. */
+.pod-rule {
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='76' height='12' viewBox='0 0 76 12'%3E%3Cg fill='%23efe5cf' stroke='%23b9a57c' stroke-width='.9'%3E%3Cellipse cx='8' cy='6' rx='3.3' ry='3.4'/%3E%3Cellipse cx='15' cy='6' rx='4.3' ry='4.4'/%3E%3Cellipse cx='22' cy='6' rx='4.3' ry='4.4'/%3E%3Cellipse cx='29' cy='6' rx='4.3' ry='4.4'/%3E%3Cellipse cx='36' cy='6' rx='4.3' ry='4.4'/%3E%3Cellipse cx='43' cy='6' rx='4.3' ry='4.4'/%3E%3Cellipse cx='50' cy='6' rx='4.3' ry='4.4'/%3E%3Cellipse cx='57' cy='6' rx='4.3' ry='4.4'/%3E%3Cellipse cx='64' cy='6' rx='3.3' ry='3.4'/%3E%3C/g%3E%3C/svg%3E") center / auto 100% round no-repeat; /* whole pods only */
 }
 
 /* Wood grain for the long table illustration */

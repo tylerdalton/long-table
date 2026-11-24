@@ -42,7 +42,7 @@ function PhotoPicker({
       <span className="label">{title}</span>
       <div className="flex flex-wrap gap-2">
         {mine.map((p) => (
-          <div key={p.key} className="relative h-24 w-24 overflow-hidden rounded-2xl border border-line bg-butter">
+          <div key={p.key} className="relative h-24 w-24 overflow-hidden rounded-2xl border border-line bg-pod">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={p.preview} alt="" className="h-full w-full object-cover" />
             {p.status !== "done" && (
@@ -63,7 +63,7 @@ function PhotoPicker({
         <button
           type="button"
           onClick={() => input.current?.click()}
-          className="flex h-24 w-24 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#e2c9a8] bg-[#fffaf2] text-center text-xs font-bold text-ink-soft transition hover:border-pumpkin"
+          className="flex h-24 w-24 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#e2c9a8] bg-[#fffaf2] text-center text-xs font-bold text-ink-soft transition hover:border-marigold"
         >
           <span className="text-2xl">{emoji}</span>
           Add photo
@@ -322,7 +322,7 @@ export function RecipeForm({
         </div>
       </div>
 
-      {error && <p className="text-center font-semibold text-berry-deep">{error}</p>}
+      {error && <p className="text-center font-semibold text-plum">{error}</p>}
 
       <div className="pb-safe fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 px-4 py-3 backdrop-blur-md md:static md:border-0 md:bg-transparent md:p-0">
         <div className="mx-auto flex max-w-2xl gap-2 md:max-w-none">

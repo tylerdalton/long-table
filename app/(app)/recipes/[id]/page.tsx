@@ -45,20 +45,20 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
           </div>
           <div className="mt-3 flex flex-wrap gap-2 text-sm font-bold">
             {r.course && (
-              <span className="rounded-full bg-pumpkin-soft px-3 py-1 text-[#9a4a17]">
+              <span className="rounded-full bg-marigold-soft px-3 py-1 text-marigold-ink">
                 {courseEmoji(r.course)} {r.course}
               </span>
             )}
             {RECIPE_TAGS.filter((t) => r.tags.includes(t.id)).map((t) => (
-              <span key={t.id} className="rounded-full bg-butter px-3 py-1 text-[#8a6418]">
+              <span key={t.id} className="rounded-full bg-pod px-3 py-1 text-pod-ink">
                 {t.emoji} {t.label}
               </span>
             ))}
-            {r.servings && <span className="rounded-full bg-sage-soft px-3 py-1 text-[#4d6640]">🍽️ {r.servings}</span>}
-            {r.time_note && <span className="rounded-full bg-sage-soft px-3 py-1 text-[#4d6640]">⏱️ {r.time_note}</span>}
+            {r.servings && <span className="rounded-full bg-moss-soft px-3 py-1 text-moss-ink">🍽️ {r.servings}</span>}
+            {r.time_note && <span className="rounded-full bg-moss-soft px-3 py-1 text-moss-ink">⏱️ {r.time_note}</span>}
           </div>
           {r.story && (
-            <blockquote className="font-display mt-5 border-l-4 border-pumpkin/50 pl-4 text-lg whitespace-pre-line text-ink italic">
+            <blockquote className="font-display mt-5 border-l-4 border-marigold/50 pl-4 text-lg whitespace-pre-line text-ink italic">
               {r.story}
             </blockquote>
           )}
@@ -79,7 +79,7 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
               <ol className="space-y-4">
                 {steps.map((s, i) => (
                   <li key={i} className="flex gap-3">
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-berry-deep text-sm font-extrabold text-white">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-plum text-sm font-extrabold text-white">
                       {i + 1}
                     </span>
                     <span className="pt-0.5 leading-relaxed">{s}</span>
@@ -91,9 +91,9 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
         </div>
       ) : (
         cards.length > 0 && (
-          <p className="no-print rounded-2xl bg-butter px-5 py-4 text-[15px]">
+          <p className="no-print rounded-2xl bg-pod px-5 py-4 text-[15px]">
             📇 This recipe lives on the card below.{" "}
-            <Link href={`/recipes/${r.id}/edit`} className="font-bold text-berry-deep underline-offset-2 hover:underline">
+            <Link href={`/recipes/${r.id}/edit`} className="font-bold text-plum underline-offset-2 hover:underline">
               Type it out
             </Link>{" "}
             so it&apos;s searchable and easy to read on a phone.
@@ -121,7 +121,7 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
           <h2 className="section-title mb-3">More photos</h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {dishPhotos.map((p) => (
-              <a key={p.id} href={p.url} target="_blank" rel="noreferrer" className="aspect-square overflow-hidden rounded-2xl border border-line bg-butter">
+              <a key={p.id} href={p.url} target="_blank" rel="noreferrer" className="aspect-square overflow-hidden rounded-2xl border border-line bg-pod">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={p.thumb} alt="" className="h-full w-full object-cover" loading="lazy" />
               </a>
@@ -140,9 +140,9 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
           <ul className="mt-3 divide-y divide-line">
             {history.map((h) => (
               <li key={h.dish_id}>
-                <Link href={`/g/${h.gathering_id}`} className="flex flex-wrap items-baseline justify-between gap-2 py-2.5 hover:text-berry-deep">
+                <Link href={`/g/${h.gathering_id}`} className="flex flex-wrap items-baseline justify-between gap-2 py-2.5 hover:text-plum">
                   <span className="font-bold">
-                    {yearOf(h.date) && <span className="mr-2 text-pumpkin">{yearOf(h.date)}</span>}
+                    {yearOf(h.date) && <span className="mr-2 text-marigold">{yearOf(h.date)}</span>}
                     {h.gathering_title}
                   </span>
                   <span className="text-sm text-ink-soft">

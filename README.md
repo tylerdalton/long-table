@@ -17,6 +17,14 @@ Our family's holiday table: who's coming, who's bringing what, and every year we
 
 Still to come: a richer Past Tables history, Rope's Gallery, a "download the family archive" export, and a way to fill in past years.
 
+## The look
+
+The colors and the mark come from Rope's pine-cone turkey:
+- **Plum** from the crushed-petal neck (buttons and headings), **jay blue** from the painted head (focus rings), **wattle red**, **marigold** from the dried flowers in the tail, **moss** from the painted board, **seed-pod cream** and **pine-cone brown**. They're all in `app/globals.css`.
+- `components/RopeTurkey.tsx` redraws the turkey as an SVG. It's the logo, the favicon and the home-screen icon, and it stands in the Thanksgiving hero.
+- `public/rope/` holds cropped photos of the real piece: `turkey.jpg` on the sign-in page, and `board.jpg`, Rope's painted board, which the `.painted-board` strips use. These load without signing in, so the sign-in page can show them.
+- `.pod-rule` draws a row of beaded seed pods, like the ones along the tail fan.
+
 ## Stack
 
 - **Next.js 16** (App Router, server actions) on **Vercel**

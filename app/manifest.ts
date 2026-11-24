@@ -7,10 +7,10 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Our family's holiday table",
     start_url: "/",
     display: "standalone",
-    background_color: "#f8f1e5",
-    theme_color: "#f8f1e5",
+    background_color: "#f5eee2",
+    theme_color: "#f5eee2",
     icons: [
-      { src: "/icon.svg", sizes: "any", type: "image/svg+xml" },
+      { src: "/icon", sizes: "64x64", type: "image/png" },
       { src: "/apple-icon", sizes: "180x180", type: "image/png" },
     ],
   };

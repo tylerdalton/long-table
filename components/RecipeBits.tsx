@@ -27,7 +27,7 @@ export function IngredientList({ items }: { items: string[] }) {
               <span
                 aria-hidden
                 className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border-2 text-xs font-black ${
-                  checked ? "border-sage bg-sage text-white" : "border-[#dcc7a8] bg-paper"
+                  checked ? "border-moss bg-moss text-white" : "border-[#dcc7a8] bg-paper"
                 }`}
               >
                 {checked && "✓"}

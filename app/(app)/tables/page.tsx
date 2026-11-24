@@ -47,8 +47,8 @@ export default async function TablesPage() {
             const kind = kindOf(g.kind);
             return (
               <li key={g.id} className="relative">
-                <span className="absolute top-6 -left-[33px] grid h-6 w-6 place-items-center rounded-full border-4 border-bg bg-wood sm:-left-[41px]" />
-                <Link href={`/g/${g.id}`} className="card block p-5 transition hover:border-pumpkin sm:p-6">
+                <span className="absolute top-6 -left-[33px] grid h-6 w-6 place-items-center rounded-full border-4 border-bg bg-cone sm:-left-[41px]" />
+                <Link href={`/g/${g.id}`} className="card block p-5 transition hover:border-marigold sm:p-6">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div>
                       <h2 className="font-display text-2xl">
@@ -59,7 +59,7 @@ export default async function TablesPage() {
                       </p>
                     </div>
                     {g.date && (
-                      <span className="rounded-full bg-butter px-3 py-1 text-sm font-bold text-[#8a6418]">
+                      <span className="rounded-full bg-pod px-3 py-1 text-sm font-bold text-pod-ink">
                         {countdown(g.date)}
                       </span>
                     )}

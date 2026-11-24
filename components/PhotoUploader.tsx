@@ -101,7 +101,7 @@ export function PhotoUploader({
                 type="button"
                 aria-pressed={kind === k.id}
                 onClick={() => setKind(k.id)}
-                className="rounded-2xl border-2 border-line bg-paper px-4 py-4 text-left font-bold transition aria-pressed:border-berry-deep aria-pressed:bg-pumpkin-soft/60"
+                className="rounded-2xl border-2 border-line bg-paper px-4 py-4 text-left font-bold transition aria-pressed:border-plum aria-pressed:bg-marigold-soft/60"
               >
                 <span className="block text-3xl">{k.emoji}</span>
                 {k.label}
@@ -159,7 +159,7 @@ export function PhotoUploader({
           />
           <label
             htmlFor="files"
-            className="flex cursor-pointer flex-col items-center justify-center rounded-3xl border-2 border-dashed border-[#e2c9a8] bg-[#fffaf2] px-6 py-10 text-center transition hover:border-pumpkin"
+            className="flex cursor-pointer flex-col items-center justify-center rounded-3xl border-2 border-dashed border-[#e2c9a8] bg-[#fffaf2] px-6 py-10 text-center transition hover:border-marigold"
           >
             <span className="text-5xl">{kind === "art" ? "🎨" : "📸"}</span>
             <span className="mt-2 text-lg font-bold">{items.length ? "Add more" : "Choose photos"}</span>
@@ -170,7 +170,7 @@ export function PhotoUploader({
         {items.length > 0 && (
           <ul className="grid grid-cols-3 gap-2 sm:grid-cols-5">
             {items.map((p) => (
-              <li key={p.key} className="relative aspect-square overflow-hidden rounded-2xl border border-line bg-butter">
+              <li key={p.key} className="relative aspect-square overflow-hidden rounded-2xl border border-line bg-pod">
                 {p.preview && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={p.preview} alt="" className="h-full w-full object-cover" />
@@ -191,13 +191,13 @@ export function PhotoUploader({
           </ul>
         )}
         {items.some((p) => p.status === "error") && (
-          <p className="text-sm font-semibold text-berry-deep">
+          <p className="text-sm font-semibold text-plum">
             {items.find((p) => p.status === "error")?.error}. Remove it and try again.
           </p>
         )}
       </div>
 
-      {error && <p className="text-center font-semibold text-berry-deep">{error}</p>}
+      {error && <p className="text-center font-semibold text-plum">{error}</p>}
 
       <div className="pb-safe fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 px-4 py-3 backdrop-blur-md md:static md:border-0 md:bg-transparent md:p-0">
         <div className="mx-auto flex max-w-2xl gap-2 md:max-w-none">

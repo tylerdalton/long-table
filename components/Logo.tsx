@@ -1,22 +1,19 @@
+import { RopeTurkey } from "./RopeTurkey";
+
+/** The wordmark. `md` sits in the header with Rope's turkey beside it; `lg` stands over a row of seed pods. */
 export function Logo({ size = "md" }: { size?: "md" | "lg" }) {
-  const big = size === "lg";
-  return (
-    <span className="inline-flex flex-col items-center leading-none">
-      <span className={`font-display italic text-berry-deep ${big ? "text-5xl sm:text-6xl" : "text-[22px] sm:text-2xl"}`}>
-        The Long Table
+  if (size === "lg") {
+    return (
+      <span className="inline-flex flex-col items-center leading-none">
+        <span className="font-display text-5xl text-plum italic sm:text-6xl">The Long Table</span>
+        <span aria-hidden className="pod-rule mt-3 w-56 sm:w-64" />
       </span>
-      {/* a little table with place settings under the wordmark */}
-      <svg
-        aria-hidden
-        viewBox="0 0 200 18"
-        className={big ? "mt-2 w-60 sm:w-72" : "mt-0.5 w-full max-w-[150px]"}
-        preserveAspectRatio="none"
-      >
-        {[18, 50, 82, 118, 150, 182].map((x) => (
-          <circle key={x} cx={x} cy="5" r="4" fill="#f2c9a6" />
-        ))}
-        <rect x="2" y="10" width="196" height="5" rx="2.5" fill="#a26a3f" />
-      </svg>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1.5 leading-none">
+      <RopeTurkey className="h-11 w-11 shrink-0 -translate-y-0.5" />
+      <span className="font-display text-[22px] text-plum italic sm:text-2xl">The Long Table</span>
     </span>
   );
 }

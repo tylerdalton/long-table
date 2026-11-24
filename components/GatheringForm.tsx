@@ -121,8 +121,8 @@ export function GatheringForm({
         </div>
 
         {isNew && kind === "thanksgiving" && (
-          <label className="flex items-start gap-3 rounded-2xl bg-sage-soft px-4 py-3">
-            <input type="checkbox" name="classic_menu" defaultChecked className="mt-1 h-5 w-5 accent-[#6f8a5e]" />
+          <label className="flex items-start gap-3 rounded-2xl bg-moss-soft px-4 py-3">
+            <input type="checkbox" name="classic_menu" defaultChecked className="mt-1 h-5 w-5 accent-[#2f8a3c]" />
             <span>
               <span className="font-bold">Start with the classic Thanksgiving menu</span>
               <span className="block text-sm text-ink-soft">
@@ -133,7 +133,7 @@ export function GatheringForm({
         )}
       </div>
 
-      {error && <p className="text-center font-semibold text-berry-deep">{error}</p>}
+      {error && <p className="text-center font-semibold text-plum">{error}</p>}
 
       <div className="pb-safe fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 px-4 py-3 backdrop-blur-md md:static md:border-0 md:bg-transparent md:p-0">
         <div className="mx-auto flex max-w-2xl gap-2 md:max-w-none">

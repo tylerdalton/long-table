@@ -91,16 +91,16 @@ export function ByPerson({
       {list.map((p) => (
         <div
           key={p.key}
-          className={`rounded-2xl border px-4 py-3 ${isMe(p) ? "border-sage/50 bg-sage-soft/60" : "border-line bg-paper"}`}
+          className={`rounded-2xl border px-4 py-3 ${isMe(p) ? "border-moss/50 bg-moss-soft/60" : "border-line bg-paper"}`}
         >
           <div className="flex items-center gap-3">
-            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-pumpkin-soft text-xl">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-marigold-soft text-xl">
               {p.member?.emoji ?? "👤"}
             </span>
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="truncate text-lg font-bold">{p.name}</span>
-                {isMe(p) && <span className="text-xs font-extrabold text-pumpkin">YOU</span>}
+                {isMe(p) && <span className="text-xs font-extrabold text-marigold">YOU</span>}
               </div>
               <div className="text-sm text-ink-soft">
                 {p.jobs.length ? plural(p.jobs.length, "job") : "Nothing signed up yet"}
@@ -135,7 +135,7 @@ export function ByPerson({
 
       {open.length > 0 && (
         <div className="rounded-2xl border border-dashed border-[#e2c9a8] bg-[#fffaf2] px-4 py-3">
-          <div className="text-sm font-extrabold tracking-wide text-pumpkin uppercase">Still needs someone</div>
+          <div className="text-sm font-extrabold tracking-wide text-marigold uppercase">Still needs someone</div>
           <ul className="mt-2 space-y-1">
             {open.map(({ dish, need }) => (
               <li key={dish.id} className="flex items-baseline gap-2">

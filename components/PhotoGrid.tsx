@@ -54,7 +54,7 @@ export function PhotoGrid({
           <li key={p.id}>
             <button
               onClick={() => setOpen(i)}
-              className="group relative block aspect-square w-full overflow-hidden rounded-2xl border border-line bg-butter"
+              className="group relative block aspect-square w-full overflow-hidden rounded-2xl border border-line bg-pod"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -78,7 +78,7 @@ export function PhotoGrid({
           role="dialog"
           aria-modal="true"
           aria-label="Photo"
-          className="fixed inset-0 z-[70] flex flex-col bg-[#1f160f]/95 text-[#f8f1e5]"
+          className="fixed inset-0 z-[70] flex flex-col bg-[#1f160f]/95 text-[#f5eee2]"
           onClick={close}
         >
           <div className="flex items-center justify-between gap-3 px-4 py-3" onClick={(e) => e.stopPropagation()}>
@@ -86,11 +86,11 @@ export function PhotoGrid({
               {open! + 1} of {photos.length}
             </span>
             <div className="flex gap-2">
-              <a href={current.url} download className="btn btn-sm border border-white/20 text-[#f8f1e5]">
+              <a href={current.url} download className="btn btn-sm border border-white/20 text-[#f5eee2]">
                 Save
               </a>
               <button
-                className="btn btn-sm border border-white/20 text-[#f8f1e5]"
+                className="btn btn-sm border border-white/20 text-[#f5eee2]"
                 disabled={pending}
                 onClick={() => {
                   if (!confirm("Delete this photo for everyone?")) return;
@@ -103,7 +103,7 @@ export function PhotoGrid({
               >
                 {pending ? "Deleting…" : "Delete"}
               </button>
-              <button className="btn btn-sm bg-[#f8f1e5] text-ink" onClick={close}>
+              <button className="btn btn-sm bg-[#f5eee2] text-ink" onClick={close}>
                 Close
               </button>
             </div>

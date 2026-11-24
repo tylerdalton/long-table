@@ -31,7 +31,7 @@ export function TopNav() {
           key={l.href}
           href={l.href}
           className={`rounded-full px-4 py-2 text-[15px] font-bold transition ${
-            isActive(l.href) ? "bg-pumpkin-soft text-[#9a4a17]" : "text-ink-soft hover:text-ink"
+            isActive(l.href) ? "bg-marigold-soft text-marigold-ink" : "text-ink-soft hover:text-ink"
           }`}
         >
           {l.label}
@@ -54,7 +54,7 @@ export function BottomNav() {
       key={l.href}
       href={l.href}
       className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-[11px] font-extrabold tracking-wide ${
-        isActive(l.href) ? "text-berry-deep" : "text-ink-soft"
+        isActive(l.href) ? "text-plum" : "text-ink-soft"
       }`}
     >
       <span className={`text-[22px] transition ${isActive(l.href) ? "scale-110" : "opacity-70 grayscale-[.4]"}`}>
@@ -64,7 +64,8 @@ export function BottomNav() {
     </Link>
   );
   return (
-    <nav className="pb-safe fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 backdrop-blur-md md:hidden">
+    <nav className="pb-safe fixed inset-x-0 bottom-0 z-40 bg-paper/95 backdrop-blur-md md:hidden">
+      <div aria-hidden className="painted-board h-1" />
       <div className="mx-auto flex max-w-md items-end px-2">
         {tab(LINKS[0])}
         {tab(LINKS[1])}
@@ -72,7 +73,7 @@ export function BottomNav() {
           <Link
             href="/photos/add"
             aria-label="Add photos"
-            className="-mt-7 grid h-16 w-16 place-items-center rounded-full border-4 border-bg bg-berry-deep text-3xl text-white shadow-[0_10px_24px_-8px_#8f2b37] transition active:scale-95"
+            className="-mt-7 grid h-16 w-16 place-items-center rounded-full border-4 border-bg bg-plum text-3xl text-white shadow-[0_10px_24px_-8px_#6b2152] transition active:scale-95"
           >
             📸
           </Link>

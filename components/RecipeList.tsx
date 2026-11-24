@@ -46,8 +46,8 @@ export function RecipeList({ recipes }: { recipes: RecipeSummary[] }) {
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((r) => (
             <li key={r.id}>
-              <Link href={`/recipes/${r.id}`} className="card flex h-full gap-4 p-3 transition hover:border-pumpkin">
-                <div className="grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl bg-butter text-4xl">
+              <Link href={`/recipes/${r.id}`} className="card flex h-full gap-4 p-3 transition hover:border-marigold">
+                <div className="grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl bg-pod text-4xl">
                   {r.thumb ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={r.thumb} alt="" className="h-full w-full object-cover" loading="lazy" />
@@ -60,12 +60,12 @@ export function RecipeList({ recipes }: { recipes: RecipeSummary[] }) {
                   {r.from_whom && <div className="text-sm text-ink-soft">from {r.from_whom}</div>}
                   <div className="mt-1.5 flex flex-wrap gap-1.5">
                     {RECIPE_TAGS.filter((t) => r.tags.includes(t.id)).map((t) => (
-                      <span key={t.id} className="rounded-full bg-butter px-2 py-0.5 text-xs font-bold text-[#8a6418]">
+                      <span key={t.id} className="rounded-full bg-pod px-2 py-0.5 text-xs font-bold text-pod-ink">
                         {t.emoji} {t.label}
                       </span>
                     ))}
                     {r.times_made > 0 && (
-                      <span className="rounded-full bg-sage-soft px-2 py-0.5 text-xs font-bold text-[#4d6640]">
+                      <span className="rounded-full bg-moss-soft px-2 py-0.5 text-xs font-bold text-moss-ink">
                         🍽️ Made {r.times_made === 1 ? "once" : `${r.times_made} times`}
                       </span>
                     )}

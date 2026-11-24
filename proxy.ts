@@ -16,7 +16,7 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Everything except the login page, the keep-alive cron, Next internals and static icons.
-    "/((?!login|api/keepalive|_next/static|_next/image|favicon.ico|icon|apple-icon|manifest.webmanifest).*)",
+    // Everything except the login page, the keep-alive cron, Next internals, static icons and Rope's art in /public/rope.
+    "/((?!login|api/keepalive|_next/static|_next/image|favicon.ico|icon|apple-icon|manifest.webmanifest|rope/).*)",
   ],
 };

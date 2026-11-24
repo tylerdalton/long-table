@@ -47,9 +47,9 @@ function Job({
       <div className="text-sm">
         {text.icon && <span className="mr-1.5">{text.icon}</span>}
         {!who ? (
-          <span className="font-semibold text-pumpkin">{text.open}</span>
+          <span className="font-semibold text-marigold">{text.open}</span>
         ) : mine ? (
-          <span className="font-semibold text-[#4d6640]">{text.me} ✓</span>
+          <span className="font-semibold text-moss-ink">{text.me} ✓</span>
         ) : (
           <span className="text-ink-soft">
             <span className="font-semibold text-ink">{who}</span> {text.them}
@@ -106,7 +106,7 @@ function DishRow({ dish, meId, onClaimed }: { dish: Dish; meId: string; onClaime
         !covered
           ? "border-dashed border-[#e2c9a8] bg-[#fffaf2]"
           : involved
-            ? "border-sage/50 bg-sage-soft/60"
+            ? "border-moss/50 bg-moss-soft/60"
             : "border-line bg-paper"
       } ${pending ? "opacity-60" : ""}`}
     >
@@ -115,7 +115,7 @@ function DishRow({ dish, meId, onClaimed }: { dish: Dish; meId: string; onClaime
           <div className="font-bold">
             {dish.name}
             {dish.split && (
-              <span className="ml-2 rounded-full bg-butter px-2 py-0.5 align-middle text-[11px] font-extrabold text-[#8a6418] uppercase">
+              <span className="ml-2 rounded-full bg-pod px-2 py-0.5 align-middle text-[11px] font-extrabold text-pod-ink uppercase">
                 Split
               </span>
             )}
@@ -125,20 +125,20 @@ function DishRow({ dish, meId, onClaimed }: { dish: Dish; meId: string; onClaime
         {dish.recipe_id ? (
           <Link
             href={`/recipes/${dish.recipe_id}`}
-            className="shrink-0 rounded-full bg-butter px-3 py-1.5 text-xs font-extrabold text-[#8a6418] hover:bg-[#f2dfbd]"
+            className="shrink-0 rounded-full bg-pod px-3 py-1.5 text-xs font-extrabold text-pod-ink hover:bg-[#e4d8bd]"
           >
             📖 Recipe
           </Link>
         ) : (
           <Link
             href={`/recipes/new?dish=${dish.id}`}
-            className="shrink-0 rounded-full border border-dashed border-[#e2c9a8] px-3 py-1.5 text-xs font-bold text-ink-soft hover:border-pumpkin hover:text-ink"
+            className="shrink-0 rounded-full border border-dashed border-[#e2c9a8] px-3 py-1.5 text-xs font-bold text-ink-soft hover:border-marigold hover:text-ink"
           >
             ＋ Recipe
           </Link>
         )}
         <button
-          className="-mt-1 -mr-2 grid h-9 w-9 shrink-0 place-items-center rounded-full text-ink-soft hover:bg-[#f6ece0] hover:text-berry-deep"
+          className="-mt-1 -mr-2 grid h-9 w-9 shrink-0 place-items-center rounded-full text-ink-soft hover:bg-[#f6ece0] hover:text-plum"
           disabled={pending}
           aria-label={`Remove ${dish.name} from the menu`}
           title="Remove from the menu"
@@ -221,11 +221,11 @@ function AddDishForm({ gatheringId, onAdded }: { gatheringId: string; onAdded: (
         </label>
         <input id="dish-note" name="note" maxLength={300} className="field" placeholder="Gluten-free, needs oven space at 4pm…" />
       </div>
-      <label className="flex items-center gap-3 rounded-2xl bg-sage-soft px-4 py-3 font-bold">
-        <input type="checkbox" name="mine" defaultChecked className="h-5 w-5 accent-[#6f8a5e]" />
+      <label className="flex items-center gap-3 rounded-2xl bg-moss-soft px-4 py-3 font-bold">
+        <input type="checkbox" name="mine" defaultChecked className="h-5 w-5 accent-[#2f8a3c]" />
         I&apos;m bringing this
       </label>
-      {error && <p className="text-sm font-semibold text-berry-deep">{error}</p>}
+      {error && <p className="text-sm font-semibold text-plum">{error}</p>}
       <button className="btn btn-primary" disabled={pending}>
         {pending ? "Adding…" : "Add dish"}
       </button>

@@ -20,7 +20,7 @@ export function LoginForm() {
         className="field text-center text-lg tracking-wide"
         placeholder="••••••••"
       />
-      {error && <p className="text-center text-sm font-semibold text-berry-deep">{error}</p>}
+      {error && <p className="text-center text-sm font-semibold text-plum">{error}</p>}
       <button className="btn btn-primary w-full text-base" disabled={pending}>
         {pending ? "Setting your place…" : "Pull up a chair 🍂"}
       </button>

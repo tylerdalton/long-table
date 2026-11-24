@@ -33,14 +33,14 @@ export function NewMemberForm() {
               onClick={() => setEmoji(e)}
               aria-pressed={emoji === e}
               aria-label={`Use ${e}`}
-              className="h-11 w-11 rounded-full border border-line bg-paper text-2xl transition aria-pressed:scale-110 aria-pressed:border-berry-deep aria-pressed:bg-pumpkin-soft"
+              className="h-11 w-11 rounded-full border border-line bg-paper text-2xl transition aria-pressed:scale-110 aria-pressed:border-plum aria-pressed:bg-marigold-soft"
             >
               {e}
             </button>
           ))}
         </div>
       </div>
-      {error && <p className="text-sm font-semibold text-berry-deep">{error}</p>}
+      {error && <p className="text-sm font-semibold text-plum">{error}</p>}
       <button className="btn btn-primary w-full" disabled={pending}>
         {pending ? "Saving…" : "That's me!"}
       </button>

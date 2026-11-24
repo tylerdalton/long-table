@@ -7,8 +7,9 @@ import { NewMemberForm } from "./NewMemberForm";
 export default async function WhoPage() {
   const members = await getMembers();
   return (
-    <main className="relative flex min-h-dvh items-center justify-center px-4 py-10">
+    <main className="relative flex min-h-dvh items-center justify-center px-4 pt-10 pb-28">
       <Leaves />
+      <div aria-hidden className="painted-board fixed inset-x-0 bottom-0 h-20 shadow-[0_-6px_20px_-8px_rgba(0,0,0,.35)] sm:h-24" />
       <div className="card pop-in relative w-full max-w-lg px-6 py-8 sm:px-10">
         <div className="text-center">
           <Logo />
@@ -20,7 +21,7 @@ export default async function WhoPage() {
           <div className="mt-6 grid grid-cols-2 gap-3">
             {members.map((m) => (
               <form key={m.id} action={chooseMember.bind(null, m.id)}>
-                <button className="flex w-full items-center gap-3 rounded-2xl border border-line bg-[#fffaf2] px-4 py-4 text-left font-bold transition hover:border-pumpkin active:scale-[.97]">
+                <button className="flex w-full items-center gap-3 rounded-2xl border border-line bg-[#fffaf2] px-4 py-4 text-left font-bold transition hover:border-marigold active:scale-[.97]">
                   <span className="text-3xl">{m.emoji}</span>
                   <span className="truncate text-lg">{m.name}</span>
                 </button>

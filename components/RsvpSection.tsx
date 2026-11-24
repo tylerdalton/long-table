@@ -93,7 +93,7 @@ function RsvpForm({
           placeholder="Allergies, arriving late, bringing a friend…"
         />
       </div>
-      {error && <p className="text-sm font-semibold text-berry-deep">{error}</p>}
+      {error && <p className="text-sm font-semibold text-plum">{error}</p>}
       <div className="flex flex-wrap gap-2">
         <button className="btn btn-primary" disabled={pending}>
           {pending ? "Saving…" : rsvp ? "Save changes" : "Send RSVP"}
@@ -113,9 +113,9 @@ function PartyRow({ rsvp, gatheringId, isMine }: { rsvp: Rsvp; gatheringId: stri
   const [pending, start] = useTransition();
   const badge =
     rsvp.status === "yes"
-      ? "bg-sage-soft text-[#4d6640]"
+      ? "bg-moss-soft text-moss-ink"
       : rsvp.status === "maybe"
-        ? "bg-butter text-[#8a6418]"
+        ? "bg-pod text-pod-ink"
         : "bg-[#f1e4e4] text-[#8a4a52]";
   const counts =
     rsvp.status === "no"
@@ -124,7 +124,7 @@ function PartyRow({ rsvp, gatheringId, isMine }: { rsvp: Rsvp; gatheringId: stri
 
   if (editing) {
     return (
-      <li className="rounded-2xl border border-pumpkin/40 bg-[#fffaf2] p-4">
+      <li className="rounded-2xl border border-marigold/40 bg-[#fffaf2] p-4">
         <RsvpForm
           gatheringId={gatheringId}
           rsvp={rsvp}
@@ -133,7 +133,7 @@ function PartyRow({ rsvp, gatheringId, isMine }: { rsvp: Rsvp; gatheringId: stri
         />
         <button
           type="button"
-          className="mt-4 text-sm font-bold text-berry-deep underline-offset-2 hover:underline"
+          className="mt-4 text-sm font-bold text-plum underline-offset-2 hover:underline"
           disabled={pending}
           onClick={() => confirm(`Remove ${rsvp.party}'s RSVP?`) && start(() => deleteRsvp(rsvp.id))}
         >
@@ -148,7 +148,7 @@ function PartyRow({ rsvp, gatheringId, isMine }: { rsvp: Rsvp; gatheringId: stri
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           <span className="truncate font-bold">{rsvp.party}</span>
-          {isMine && <span className="text-xs font-extrabold text-pumpkin">YOU</span>}
+          {isMine && <span className="text-xs font-extrabold text-marigold">YOU</span>}
           <span className={`rounded-full px-2 py-0.5 text-xs font-extrabold ${badge}`}>
             {rsvp.status === "yes" ? "Coming" : rsvp.status === "maybe" ? "Maybe" : "Not this year"}
           </span>

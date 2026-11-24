@@ -1,6 +1,7 @@
-const LEAVES = ["🍂", "🍁", "🍂", "🍁", "🌾", "🍂", "🍁", "🍂", "🍁", "🍂"];
+// Leaves, plus a few loose feathers from Rope's turkey.
+const LEAVES = ["🍂", "🪶", "🍁", "🍂", "🌾", "🪶", "🍁", "🍂", "🍁", "🪶"];
 
-/** Gently falling leaves behind the login and "who's this?" cards. */
+/** Gently falling leaves and feathers behind the login and "who's this?" cards. */
 export function Leaves() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 overflow-hidden">
