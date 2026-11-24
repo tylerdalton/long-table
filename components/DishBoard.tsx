@@ -52,7 +52,8 @@ function Job({
           <span className="font-semibold text-moss-ink">{text.me} ✓</span>
         ) : (
           <span className="text-ink-soft">
-            <span className="font-semibold text-ink">{who}</span> {text.them}
+            <span className="font-semibold text-ink">{who}</span>{" "}
+            {/\s(&|and)\s/i.test(who) ? text.them.replace(/^is /, "are ") : text.them}
           </span>
         )}
       </div>
